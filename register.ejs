@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account</title>
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Create Account</h1>
+
+        <p class="subtitle">Register to manage your tasks.</p>
+
+        <% if (errors.length > 0) { %>
+            <div class="errors">
+                <% errors.forEach(error => { %>
+                    <p><%= error %></p>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <form action="/register" method="POST" id="registerForm">
+
+            <label for="name">Name</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                maxlength="100"
+                value="<%= name %>"
+            >
+
+            <label for="email">Email</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="255"
+                value="<%= email %>"
+            >
+
+            <label for="password">Password</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                maxlength="72"
+            >
+
+            <label for="confirm_password">Confirm Password</label>
+
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                maxlength="72"
+            >
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <p class="footer">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+
+</body>
+</html>
